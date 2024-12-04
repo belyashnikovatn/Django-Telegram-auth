@@ -18,9 +18,11 @@ $ python -m venv venv
 $ source venv/Scripts/activate  
 $ python -m pip install --upgrade pip  
 $ pip install -r requirements.txt  
+$ cd DTAproject/
 $ python manage.py migrate  
-$ python manage.py runserver
 $ python manage.py runbot
+(another terminal)
+$ python manage.py runserver
 
 ```
 
