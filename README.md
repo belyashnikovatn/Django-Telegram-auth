@@ -22,8 +22,10 @@ $ cd DTAproject/
 $ python manage.py migrate  
 $ python manage.py runbot
 (another terminal)
+$ cd DTAproject/
 $ python manage.py runserver
 
+http://127.0.0.1:8000/homepage
 ```
 
 #

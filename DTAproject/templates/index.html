@@ -7,11 +7,9 @@
   </head>
 
   <body>
-    <h1>Страница приветствия</h1>
-    {{ value }}
-    <a href="http://t.me/{{BOT_NAME}}" target="_blank" class="btn btn-primary">
-        Register
-    </a>
-
+    <h1>Авторизации через tlg</h1>
+    <form action="http://t.me/{{BOT_NAME}}" method="post">
+      <button type="submit" name="your_name" value="your_value" class="btn-link">Go</button>
+    </form>
   </body>
 </html>

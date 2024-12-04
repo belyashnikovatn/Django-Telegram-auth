@@ -1,6 +1,7 @@
-from telebot import TeleBot
+from telebot import TeleBot, types
 
 from django.core.management.base import BaseCommand
+from django.shortcuts import redirect
 
 from DTAproject.settings import BOT_TOKEN
 from app.models import User
@@ -15,14 +16,16 @@ class Command(BaseCommand):
         bot = TeleBot(token=BOT_TOKEN)
 
         @bot.message_handler(commands=['start'])
-        def start_up(message):
+        def start(message):
             chat_id = message.chat.id
             name = message.chat.first_name
             user = User.objects.get_or_create(
                 tlg_id=chat_id,
                 tlg_name=name
             )
-            # bot.send_message(chat_id, text=f'User {name} created!')
-            print(user)
+            markup = types.InlineKeyboardMarkup()
+            button1 = types.InlineKeyboardButton("click", url='127.0.0.1:8000/homepage')
+            markup.add(button1)
+            bot.send_message(message.chat.id, "на сайт", reply_markup=markup)
 
-        bot.infinity_polling()
+        bot.polling(none_stop=True)
