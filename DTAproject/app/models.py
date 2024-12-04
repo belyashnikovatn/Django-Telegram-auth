@@ -13,7 +13,8 @@ class User(AbstractUser):
     )
     tlg_id = models.PositiveBigIntegerField(
         verbose_name='ID диалога пользователя',
-        db_index=True
+        db_index=True,
+        null=True
     )
     created_at = models.DateTimeField(
         auto_now_add=True,

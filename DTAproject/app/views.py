@@ -1,3 +1,13 @@
 from django.shortcuts import render
 
-# Create your views here.
+from DTAproject.settings import BOT_NAME
+
+
+def index(request):
+
+    context = {
+        'data': 'users',
+        'BOT_NAME': BOT_NAME
+    }
+
+    return render(request, 'index.html', context)
