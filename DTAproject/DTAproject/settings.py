@@ -23,6 +23,7 @@ BOT_TOKEN = os.getenv('BOT_TOKEN')
 DEBUG = True
 
 ALLOWED_HOSTS = []
+DOMAIN = os.getenv('DOMAIN')
 
 
 # Application definition

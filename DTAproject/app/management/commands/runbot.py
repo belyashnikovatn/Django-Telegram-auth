@@ -3,7 +3,7 @@ from telebot import TeleBot, types
 from django.core.management.base import BaseCommand
 from django.shortcuts import redirect
 
-from DTAproject.settings import BOT_TOKEN
+from DTAproject.settings import BOT_TOKEN, DOMAIN
 from app.models import User
 
 
@@ -17,14 +17,15 @@ class Command(BaseCommand):
 
         @bot.message_handler(commands=['start'])
         def start(message):
+            """Create a user if doesnt exist."""
             tlg_id = message.chat.id
             name = message.chat.first_name
-            user = User.objects.get_or_create(
+            User.objects.get_or_create(
                 tlg_id=tlg_id,
                 tlg_name=name
             )
             markup = types.InlineKeyboardMarkup()
-            button1 = types.InlineKeyboardButton("click", url=f'127.0.0.1:8000/homepage/{tlg_id}')
+            button1 = types.InlineKeyboardButton("click", url=f'http://{DOMAIN}/homepage/{tlg_id}')
             markup.add(button1)
             bot.send_message(message.chat.id, "на сайт", reply_markup=markup)
 
