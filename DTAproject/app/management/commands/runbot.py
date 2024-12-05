@@ -17,14 +17,14 @@ class Command(BaseCommand):
 
         @bot.message_handler(commands=['start'])
         def start(message):
-            chat_id = message.chat.id
+            tlg_id = message.chat.id
             name = message.chat.first_name
             user = User.objects.get_or_create(
-                tlg_id=chat_id,
+                tlg_id=tlg_id,
                 tlg_name=name
             )
             markup = types.InlineKeyboardMarkup()
-            button1 = types.InlineKeyboardButton("click", url='127.0.0.1:8000/homepage')
+            button1 = types.InlineKeyboardButton("click", url=f'127.0.0.1:8000/homepage/{tlg_id}')
             markup.add(button1)
             bot.send_message(message.chat.id, "на сайт", reply_markup=markup)
 

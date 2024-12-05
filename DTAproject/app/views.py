@@ -11,3 +11,13 @@ def index(request):
     }
 
     return render(request, 'index.html', context)
+
+
+def user(request, tlg_id):
+
+    context = {
+        'data': 'users',
+        'tlg_id': tlg_id,
+    }
+
+    return render(request, 'index.html', context)
