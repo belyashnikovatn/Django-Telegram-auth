@@ -38,6 +38,15 @@ $ source venv/Scripts/activate
 $ cd DTAproject/
 $ python manage.py runbot
 ```
-
 Перейти по http://127.0.0.1:8000/homepage/
+
+
+# Пользовательский сценарий
+1. На странице /homepage/ нажать кнопку 'Войти через Telegram'  
+![Click_button](https://github.com/belyashnikovatn/Django-Telegram-auth/blob/main/screens/1.jpg)  
+
+2. В telegram нажать /start. В ответ придёт сообщение "Вернуться" с ссылкой "на сайт"  
+![Click_ref](https://github.com/belyashnikovatn/Django-Telegram-auth/blob/main/screens/2.jpg)  
+
+3. При нажатии на ссылку и переходе по ней, пользователь попадает на домашнюю страницу под своим tlg_id. На странице выводится его никнейм.
 

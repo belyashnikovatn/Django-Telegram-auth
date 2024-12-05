@@ -25,8 +25,8 @@ class Command(BaseCommand):
                 tlg_name=name
             )
             markup = types.InlineKeyboardMarkup()
-            button1 = types.InlineKeyboardButton("click", url=f'http://{DOMAIN}/homepage/{tlg_id}')
+            button1 = types.InlineKeyboardButton("на сайт", url=f'http://{DOMAIN}/homepage/{tlg_id}')
             markup.add(button1)
-            bot.send_message(message.chat.id, "на сайт", reply_markup=markup)
+            bot.send_message(message.chat.id, "Вернуться", reply_markup=markup)
 
         bot.polling(none_stop=True)
